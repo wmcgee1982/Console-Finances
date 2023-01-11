@@ -103,8 +103,8 @@ console.log("----------------------------")
     // array.length
     // Need a variable to store the value of array.length 
     
-    var totalMonths = (finances.length)
-    console.log("Total Months: " +totalMonths)
+var totalMonths = (finances.length)
+console.log("Total Months: " +totalMonths)
 
 // The net total amount of Profit/Losses over the entire period.
     // Adding up the money
@@ -114,7 +114,7 @@ console.log("----------------------------")
         // Inside that for loop, access position 1 of each array element to get the numbers
 
 
-        
+
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total/Number of months)
