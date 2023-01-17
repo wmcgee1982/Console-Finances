@@ -103,28 +103,45 @@ console.log("----------------------------")
     // array.length
     // Need a variable to store the value of array.length 
     
-var totalMonths = (finances.length)
+let totalMonths = (finances.length)
 console.log("Total Months: " +totalMonths)
 
 // The net total amount of Profit/Losses over the entire period.
     // Adding up the money
     // Keep a rolling total 
-    // Need a variable to sotre the rolling total
+    // Need a variable to store the rolling total
     // for loop to iterate over the array
         // Inside that for loop, access position 1 of each array element to get the numbers
 
+let sum = 0;
 
+for (let i = 0; i < finances.length; i++) {
+    const [date, amount] = finances[i];
+    sum += amount;
+}
+
+console.log("Total: $" +sum);
 
 // The average of the changes in Profit/Losses over the entire period.
-// You will need to track what the total change in profits are from month to month and then find the average.
-// (Total/Number of months)
+    // You will need to track what the total change in profits are from month to month and then find the average.
+    // (Total/Number of months)
 
 // The greatest increase in profits (date and amount) over the entire period.
-
 // The greatest decrease in losses (date and amount) over the entire period.
 
     // Total up the difference between each pair of adjoining months & divide by number of array elements
     // for loop starting with i = 1 
+  
+    let finance = 0;
+
+    for (let i = 0; i < finances.length; i++) {
+        const finance = finances[i];
+        let current = [i];
+        let previous = finance[i]-1;
+
+        console.log(previous)
+    }
+
         // Each iteration, subtract the data at position [1] of the previous element from the data at position [1] of the current element 
         // Put that data into a new array variable
             // So, we need to arr.push() each new 'change' value to the new array
