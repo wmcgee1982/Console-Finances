@@ -1,3 +1,4 @@
+// Dataset Array
 var finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
@@ -87,81 +88,45 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-//console.log(finances[1]);
-
-// for (var i = 0; i < finances.length; i++) {
- //   console.log ("learning" + finances[i])}
-
+// Title
 console.log("Financial Analysis")
 console.log("----------------------------")
 
-// Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-// 1 - The total number of months included in the dataset.
-    // Count up how many things are in the array    
-    // array.length
-    // Need a variable to store the value of array.length 
-    
+// The total number of months included in the dataset.
 let totalMonths = (finances.length)
 console.log("Total Months: " +totalMonths)
 
-// 2 - The net total amount of Profit/Losses over the entire period.
-    // Adding up the money
-    // Keep a rolling total 
-    // Need a variable to store the rolling total
-    // for loop to iterate over the array
-        // Inside that for loop, access position 1 of each array element to get the numbers
-
-let sumOfAmount = 0;
+// The net total amount of Profit/Losses over the entire period.
+let sumOfProfitLoss = 0;
 
 for (let i = 0; i < finances.length; i++) {
     const [date, amount] = finances[i];
-    sumOfAmount += amount;
+    sumOfProfitLoss += amount;
 }
 
-console.log("Total: $" +sumOfAmount);
+console.log("Total: $" +sumOfProfitLoss);
 
-// 3 - The average of the changes in Profit/Losses over the entire period.
-    // You will need to track what the total change in profits are from month to month and then find the average.
-    // (Total/Number of months)
-    
-        // Total up the difference between each pair of adjoining months & divide by number of array element.
-        // for loop starting with i = 1 
-        // Each iteration, subtract the data at position[1] of the previous element from the data at position [1] of the current element 
-
-let sum = 0;
+// The average of the changes in Profit/Losses over the entire period.
+let numberOfMonths = 0;
+let sumOfChanges = 0;
 
 for (let i = 1; i < finances.length; i++) {
-const monthlyChangesArray = (finances[i][1] - finances[i-1][1]);
-
-        // Put that data into a new array variable
-            // So, we need to arr.push() each new 'change' value to the new array
-
-     // Add up the total in the new 'changes' array
-    
-    sum += monthlyChangesArray;
+    {
+        monthlyChangesArray = (finances[i][1] - finances[i-1][1]);
+        sumOfChanges += monthlyChangesArray; 
+    }
+    {
+        monthlyChangesArray = [finances[i][1] - finances[i-1][1]];
+        numberOfMonths += monthlyChangesArray.length;
+    }
 }
 
-    // Take that 'total changes amount' variable and divide it by the number of elements in the array
-        // Look up how to limit the anwser to two decimal point
+let average = Math.floor((sumOfChanges / numberOfMonths) * 100) / 100;
+console.log("Average Change: $" + average)
 
-let average = (sum / 85);
-console.log("Average Change: $" + (parseFloat(average.toFixed(2))));
+// The greatest increase in profits (date and amount) over the entire period.
 
-// 4 - The greatest increase in profits (date and amount) over the entire period.
-// 5 - The greatest decrease in losses (date and amount) over the entire period.
 
-  
-        // Need a variable to store greatest amount of chnage (+)
-        // Need a variable to store greatest amount of chnage (-)
-        // Each iteration, compare the diferrence to the previous difference
-        // If it's higher than what's already stored in the greatest-profit variable, reassign that variable to equal finances[i]
-        // If it's lower than what's already stored in the greatest-loss variable, reassign that variable to equal finances[i]
+// The greatest decrease in losses (date and amount) over the entire period.
 
-    // Add up the total in the new 'changes' array
-        // Need a variable to store the rolling total for this array that's different that the rolling total of profits
-        // for loop to iterate over the changes array
-            // add each element in turn to the rolling total
-
-    // Take that 'total changes amount' variable and divide it by the number of elements in the array
-        // Look up how to limit the anwser to two decimal points
+        
